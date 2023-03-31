@@ -1,0 +1,65 @@
+<!DOCTYPE html >
+<html lang="fr">
+  <head>
+    <title>Les petits plats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" integrity="sha512-rSWTr6dChYCbhpHaT1hg2tf4re2jUxBWTuZbujxKg96+T87KQJriMzBzW5aqcb8jmzBhhNSx4XYGA6/Y+ok1vQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
+  </head>
+  <body>
+    <header>
+        <img src="src/assets/logo.png" alt="logo">
+    </header>
+ <div class="search-container" >
+<input type="text" id="search" name="q" placeholder="Rechercher une recette" data-toggle>
+<img src="src/assets/search.png" alt="">
+ </div>
+  <div class="tags_section">
+
+  </div>
+<div class="dorpdown_section">
+   <div class="dropdown ingredients">
+  <input type="text" class="dropdown-search" placeholder="Ingredients" id="ingredients" data-toggle>
+  <ul class="dropdown-menu">
+    
+  </ul>
+  <div class="dropdown-arrow">&#9660;</div>
+</div>
+ <div class="dropdown appareils">
+  <input type="text" class="dropdown-search" placeholder="Appareils" id="appareils" data-toggle>
+  <ul class="dropdown-menu">
+  </ul>
+  <div class="dropdown-arrow">&#9660;</div>
+</div>
+ <div class="dropdown ustensils">
+  <input type="text" class="dropdown-search" placeholder="Ustensils" id="ustensils" data-toggle>
+  <ul class="dropdown-menu">
+
+  </ul>
+  <div class="dropdown-arrow">&#9660;</div>
+</div>
+
+</div>
+   
+
+  <section class="recipes_section">
+    <p id="no-recipes">Aucune recette ne correspond à votre critère… vous pouvez
+chercher « tarte aux pommes », « poisson », etc</p>
+  </section>
+    
+  </body>
+</html>
+
+
+
+
+
+
+<script  src="src/js/factories/recipesDom.js"></script>
+<script  src="src/js/factories/dropdownDom.js"></script>
+<script  src="src/js/factories/tagsDom.js"></script>
+<script  src="src/js/utils/filter.js"></script>
+<script  src="src/js/script.js"></script>

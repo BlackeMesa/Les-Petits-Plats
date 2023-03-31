@@ -1,0 +1,280 @@
+body{
+  margin: 50px 100px;
+  font-family: 'Lato', sans-serif;
+}
+
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+header img{
+  width: 270px;
+}
+.search-container{
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+#search {
+  padding: 10px 35px 10px 10px;
+  
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  width: 96%;
+  background-color: #E7E7E7;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+}
+.search-container img{
+  position: absolute;
+  right: 20px;
+}
+
+.recipes_section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.article-container{
+width: 380px;
+margin: 50px  0px;
+height: 360px
+}
+.img-container{
+background-color: #C7BEBE;
+height: 50%;
+}
+.info-container{
+background-color: #E7E7E7;
+padding: 0px 30px;
+height: 50%;
+}
+.info-header{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.info-header h2{
+  font-size: 18px;
+font-weight: 400 ;
+}
+
+.info-subheader{
+display: flex;
+    width: 25%;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.info-subheader img{
+width : 20px;
+
+}
+.info-subheader span{
+font-weight: 700;
+
+}
+.info-text{
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 95px;
+width: 100%;
+font-size: 12px;
+}
+
+.info-text ul{
+  list-style: none;
+  padding-left: 0;
+  width: 50%;
+  
+}
+
+.info-text ul span{
+  font-weight: bold;
+}
+
+.info-text span{
+  width: 50%;
+  font-family: Roboto;
+  text-align: justify;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dorpdown_section{
+  display: flex;
+  
+  margin-top: 25px;
+}
+
+.dropdown {
+  position: relative;
+  width: 160px;
+  margin-right: 40px;
+  color: white;
+  transition: width 0.3s ease-out;
+}
+
+.dropdown-search {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  
+      border-radius: 5px;
+}
+
+.dropdown-search::placeholder{
+  color: white;
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  left: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition: height 0.5s ease-out, width 0.3s ease-out;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.dropdown-menu::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#ingredients, #ingredients + ul  {
+  background-color: #3282F7;
+}
+
+#appareils, #appareils + ul {
+  background-color: #68D9A4;
+}
+#ustensils, #ustensils + ul {
+  background-color: #ED6454;
+}
+
+.active {
+  display: flex!important;
+  width: calc(100% + 20px);;
+  height: auto;
+  transition: height 0.3s ease-out, width 0.3s ease-out;
+}
+.ingredients li:hover{
+  background-color:#296cd0 ;
+}
+.appareils li:hover{
+  background-color:#52b084 ;
+}
+.ustensils li:hover{
+  background-color:#c25144 ;
+}
+.ingredient{
+width: 30%;
+padding: 10px 0px 10px 10px;
+
+cursor: pointer;
+}
+
+.tag { 
+  width: auto!important;
+  padding-right: 40px!important;
+  list-style: none;
+  color: white;
+  border-radius: 5px;
+  margin-right: 15px;
+  margin-top: 15px;
+  position: relative;
+  cursor: auto!important; 
+}
+.tag.ingredient{
+background-color:#3282F7 ;
+}
+.tag.appareil{
+background-color:#68D9A4; ;
+}
+.tag.ustensil{
+background-color:#ED6454 ;
+}
+
+.tag i{
+font-weight: 900;
+color: white;
+position: absolute;
+top: 2px;
+right: 5px;
+cursor: pointer;
+
+}
+
+
+
+.appareil{
+  width: 30%;
+  padding: 10px 0px 10px 10px;
+  cursor: pointer;
+}
+.ustensil{
+  width: 30%;
+    padding: 10px 0px 10px 10px;
+    cursor: pointer;
+}
+
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f2f2f2;
+}
+.dropdown-arrow {
+  position: absolute;
+  top: 50%;
+    right: 0px;
+  transform: translateY(-50%);
+  user-select: none;
+  font-size: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dropdown-arrow.active {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.expand{
+  width: 480px;
+  transition: width 0.3s ease-out;
+}
+
+.tags_section{
+  display: flex;
+}
+#no-recipes{
+  display: none;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
