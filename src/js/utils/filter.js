@@ -1,4 +1,8 @@
-function filter() {
+function filter(recipes) {
+
+   
+ 
+
   const dropdowns = document.querySelectorAll(".dropdown");
   const tagsSection = document.querySelector(".tags_section");
   const searchBar = document.getElementById("search");
@@ -107,7 +111,22 @@ function filter() {
   // Fonction de filtrage principal
 
   function filterData(searchQuery) {
+
+
+// let valeurs = [recette.name, recette.description, recette.appliance, ...recette.ingredients.map((ingredient) => ingredient.ingredient), ...recette.ustensils];
+let valeurs = []
+recipes.forEach((recipe) => {
+
+  valeurs.push([recipe.name, recipe.description, recipe.appliance, ...recipe.ingredients.map((ingredient) => ingredient.ingredient), ...recipe.ustensils].join(" "));
+})
+
+
+
+
+console.log(valeurs);
+
     const allRecipes = Array.from(document.querySelectorAll(".article-container"));
+    
     allRecipes.forEach((recipe) => {
       recipe.setAttribute("data-value", "show");
     });
