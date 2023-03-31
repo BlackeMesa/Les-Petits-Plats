@@ -111,7 +111,7 @@ function filter(recipes) {
   // Fonction de filtrage principal
 
   function filterData(searchQuery) {
-
+const t0 = performance.now();
 
   const allRecipes = Array.from(document.querySelectorAll(".article-container"));
   allRecipes.forEach((recipe) => {
@@ -149,6 +149,9 @@ function filter(recipes) {
     noRecipes.style.display = "block";
   }
   filterLi(array);
+
+  const t1 = performance.now();
+  console.log(`Call to doSomething took ${t1 - t0} milliseconds.`);
   return array;
 
 
