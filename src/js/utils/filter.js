@@ -46,7 +46,7 @@ function filter(recipes) {
         optionDiv.appendChild(cross);
         if (menu.parentNode.classList.contains("ingredients")) {
           tagsSection.appendChild(optionDiv).classList.add("tag", "ingredient");
-          checkFilter(optionDiv.innerText.toLowerCase());
+          checkFilter();
         } else if (menu.parentNode.classList.contains("appareils")) {
           tagsSection.appendChild(optionDiv).classList.add("tag", "appareil");
           checkFilter();
@@ -113,54 +113,45 @@ function filter(recipes) {
   function filterData(searchQuery) {
 
 
-// let valeurs = [recette.name, recette.description, recette.appliance, ...recette.ingredients.map((ingredient) => ingredient.ingredient), ...recette.ustensils];
-let valeurs = []
-recipes.forEach((recipe) => {
+  const allRecipes = Array.from(document.querySelectorAll(".article-container"));
+  allRecipes.forEach((recipe) => {
+    recipe.setAttribute("data-value", "show");
+  });
+  noRecipes.style.display = "none";
+  let array = [];
 
-  valeurs.push([recipe.name, recipe.description, recipe.appliance, ...recipe.ingredients.map((ingredient) => ingredient.ingredient), ...recipe.ustensils].join(" "));
-})
-
-
-
-
-console.log(valeurs);
-
-    const allRecipes = Array.from(document.querySelectorAll(".article-container"));
-    
-    allRecipes.forEach((recipe) => {
+  if (searchQuery == undefined || searchQuery.length == 0) {
+    for (let i = 0; i < allRecipes.length; i++) {
+      const recipe = allRecipes[i];
       recipe.setAttribute("data-value", "show");
-    });
-    noRecipes.style.display = "none";
-    let array = [];
-
-    if (searchQuery == undefined || searchQuery.length == 0) {
-      allRecipes.filter((recipe) => {
-        recipe.setAttribute("data-value", "show");
-        recipe.style.display = "block";
-      });
-      array = allRecipes;
-    } else {
-      searchQuery.forEach((query) => {
-        const recipes = Array.from(document.querySelectorAll(".article-container[data-value='show']"));
-
-        recipes.filter((recipe) => {
-          const recipeName = recipe.textContent.toLowerCase();
-          if (recipeName.includes(query)) {
-            recipe.setAttribute("data-value", "show");
-            recipe.style.display = "block";
-            array.push(recipe);
-          } else {
-            recipe.setAttribute("data-value", "hide");
-            recipe.style.display = "none";
-          }
-        });
-      });
+      recipe.style.display = "block";
+      array.push(recipe);
     }
-    if (array.length == 0) {
-      noRecipes.style.display = "block";
+  } else {
+    for (let i = 0; i < searchQuery.length; i++) {
+      const query = searchQuery[i];
+      const recipes = Array.from(document.querySelectorAll(".article-container[data-value='show']"));
+      for (let j = 0; j < recipes.length; j++) {
+        const recipe = recipes[j];
+        const recipeName = recipe.textContent.toLowerCase();
+        if (recipeName.includes(query)) {
+          recipe.setAttribute("data-value", "show");
+          recipe.style.display = "block";
+          array.push(recipe);
+        } else {
+          recipe.setAttribute("data-value", "hide");
+          recipe.style.display = "none";
+        }
+      }
     }
-    filterLi(array);
-    return array;
+  }
+  if (array.length == 0) {
+    noRecipes.style.display = "block";
+  }
+  filterLi(array);
+  return array;
+
+
   }
 
   // Fonction qui filtre les liste des subfilters
