@@ -19,10 +19,12 @@ async function displayData(recipes) {
 
 
 async function init() {
+  
   const { recipes } = await getRecipesData();
   displayData(recipes);
   dropdown(recipes);
   filter();
+  
 }
 
 init()
