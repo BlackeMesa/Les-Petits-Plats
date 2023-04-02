@@ -1,5 +1,0 @@
-function tagsDom(options, menu){
-    
-
-   
-}
