@@ -104,7 +104,7 @@ function filter() {
     filterData(query);
   }
 
-  // Fonction de filtrage principal
+  // Fonction de filtrage principa
 
   function filterData(searchQuery) {
     const allRecipes = Array.from(document.querySelectorAll(".article-container"));
