@@ -42,7 +42,7 @@ function filter() {
         optionDiv.appendChild(cross);
         if (menu.parentNode.classList.contains("ingredients")) {
           tagsSection.appendChild(optionDiv).classList.add("tag", "ingredient");
-          checkFilter(optionDiv.innerText.toLowerCase());
+          checkFilter();
         } else if (menu.parentNode.classList.contains("appareils")) {
           tagsSection.appendChild(optionDiv).classList.add("tag", "appareil");
           checkFilter();
@@ -93,18 +93,21 @@ function filter() {
         query.push(tag.innerText.toLowerCase());
       });
     } else if ((tags.length === 0) & (length >= 3)) {
+      
       query.push(searchQuery);
     } else if ((tags.length >= 1) & (length >= 3)) {
+      query.push(searchQuery);
       tags.forEach((tag) => {
         query.push(tag.innerText.toLowerCase());
       });
-      query.push(searchQuery);
+      
+      console.log(query);
     }
 
     filterData(query);
   }
 
-  // Fonction de filtrage principa
+  // Fonction de filtrage principale
 
   function filterData(searchQuery) {
     const allRecipes = Array.from(document.querySelectorAll(".article-container"));
@@ -130,6 +133,7 @@ function filter() {
             recipe.setAttribute("data-value", "show");
             recipe.style.display = "block";
             array.push(recipe);
+            console.log(recipe);
           } else {
             recipe.setAttribute("data-value", "hide");
             recipe.style.display = "none";
@@ -140,6 +144,7 @@ function filter() {
     if (array.length == 0) {
       noRecipes.style.display = "block";
     }
+    console.log(array);
     filterLi(array);
     return array;
     
@@ -170,8 +175,9 @@ function filter() {
 
   // fonctions de filtrages des ingredients/Ustensils/Appareils
   function filterLi(datas) {
+   
     const listes = Array.from(document.querySelectorAll(".dropdown-menu li"));
-
+    
     listes.forEach((liste) => {
       liste.setAttribute("data-value", "hide");
       liste.style.display = "none";

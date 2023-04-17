@@ -64,15 +64,6 @@ uniqueUstensils.forEach((ustensil) => {
   li.classList.add("ustensil");
   ustensilsMenu.appendChild(li);
 });
-
-
-
-
-
-
-
-
-
 }
 
 
