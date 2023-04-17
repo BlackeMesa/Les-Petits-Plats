@@ -101,9 +101,9 @@ function filter() {
         query.push(tag.innerText.toLowerCase());
       });
       
-      console.log(query);
+      
     }
-
+  
     filterData(query);
   }
 
@@ -124,28 +124,31 @@ function filter() {
       });
       array = allRecipes;
     } else {
+      
       searchQuery.forEach((query) => {
         const recipes = Array.from(document.querySelectorAll(".article-container[data-value='show']"));
-
+     
         recipes.filter((recipe) => {
-          const recipeName = recipe.textContent.toLowerCase();
-          if (recipeName.includes(query)) {
-            recipe.setAttribute("data-value", "show");
-            recipe.style.display = "block";
-            array.push(recipe);
-            console.log(recipe);
-          } else {
-            recipe.setAttribute("data-value", "hide");
-            recipe.style.display = "none";
-          }
+         const recipeName = recipe.textContent.toLowerCase();
+         if (recipeName.includes(query)) {
+           recipe.setAttribute("data-value", "show");
+           recipe.style.display = "block";
+           array.push(recipe);
+           
+         } else {
+           recipe.setAttribute("data-value", "hide");
+           recipe.style.display = "none";
+         }
+         
         });
       });
     }
     if (array.length == 0) {
       noRecipes.style.display = "block";
     }
-    console.log(array);
-    filterLi(array);
+    const lastrecipe = Array.from(document.querySelectorAll(".article-container[data-value='show']"));
+    
+    filterLi(lastrecipe);
     return array;
     
   }
